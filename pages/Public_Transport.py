@@ -16,7 +16,7 @@ import numpy as np
 
 # CODE
 #------------------------------------------------------------------------------------------------------------------------
-with open('../data/distritos.json') as f:
+with open('distritos.json') as f:
     data = json.load(f)  # cargamos los datos
     
 #SELECT BOXES
@@ -77,7 +77,7 @@ for feature in filtered_data['features']:
 marker_cluster = MarkerCluster() #para hacer los clusters
 
 #-----------------------------------------------BUS----------------------------------------------------------------------
-emt_data = pd.read_csv('../data/emt_con_distritos.csv')
+emt_data = pd.read_csv('emt_con_distritos.csv')
 
 # Filtrar las paradas de autobús del distrito seleccionado
 if transporte_seleccionado == "Bus" and distrito_seleccionado != "All":
@@ -114,7 +114,7 @@ elif transporte_seleccionado == "Bus" and distrito_seleccionado == "All":
 
 #-----------------------------------------------SUBWAY-------------------------------------------------------------------
 
-subway_data = pd.read_csv('../data/subway_con_distritos.csv')
+subway_data = pd.read_csv('subway_con_distritos.csv')
 
 
 if transporte_seleccionado == "Subway" and distrito_seleccionado != "All":
@@ -149,7 +149,7 @@ elif transporte_seleccionado == "Subway" and distrito_seleccionado == "All":
 
 #-----------------------------------------------VALENBISI----------------------------------------------------------------
 
-bike_data = pd.read_csv('../data/bikes_con_distritos.csv')
+bike_data = pd.read_csv('bikes_con_distritos.csv')
 
 
 if transporte_seleccionado == "Valenbisi" and distrito_seleccionado != "All":

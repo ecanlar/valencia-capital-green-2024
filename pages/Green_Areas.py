@@ -20,11 +20,11 @@ st.title("Green Areas")
   
     
 # green area map
-espacios_verdes = pd.read_csv('../data/espacios_verdes.csv', sep=';', encoding='utf-8')
+espacios_verdes = pd.read_csv('espacios_verdes.csv', sep=';', encoding='utf-8')
 nuevos_nombres = {'Id Jardí / Id. Jardín': 'ID', 'Nom / Nombre': 'Nombre', 'Barri / Barrio': 'Barrio', 'Tipologia / Tipología': 'Tipología', 'Àrea / Área': 'Área'}
 espacios_verdes = espacios_verdes.rename(columns=nuevos_nombres)
 
-vlc = "../data/espacios_verdes.geojson"
+vlc = "espacios_verdes.geojson"
 map_data = gpd.read_file(vlc)
 
 
@@ -92,15 +92,15 @@ st.plotly_chart(fig)
 st.header("Green containers")
 st.write('Another relevant factor when being the green capital of Europe are ecological containers. Oil, batteries and clothes containers have been studying.')
 
-contenedores_aceite = pd.read_csv('../data/contenedores_aceite.csv', sep=';', encoding='utf-8')
+contenedores_aceite = pd.read_csv('contenedores_aceite.csv', sep=';', encoding='utf-8')
 nuevos_nombres = {'objectid':'ID', 'Tipus / Tipo': 'Tipo', 'Centre / Centro': 'Centro', 'Adreça / Direccion' : 'Dirección', 'Districte / Distrito': 'Distrito', 'Barri / Barrio': 'Barrio', 'Oli / Aceite': 'Aceite', 'Estat / Estado': 'Estado'}
 contenedores_aceite = contenedores_aceite.rename(columns=nuevos_nombres)
 
-contenedores_pilas = pd.read_csv('../data/contenedores_pilas.csv', sep=';', encoding='utf-8')
+contenedores_pilas = pd.read_csv('contenedores_pilas.csv', sep=';', encoding='utf-8')
 nuevos_nombres = {'objectid':'ID', 'Tipus / Tipo': 'Tipo', 'Centre / Centro': 'Centro', 'Adreça / Direccion' : 'Dirección', 'Districte / Distrito': 'Distrito', 'Barri / Barrio': 'Barrio', 'Piles / Pilas': 'Pilas', 'Observació / Observación': 'Observació', 'Codi / Código': 'Código'}
 contenedores_pilas = contenedores_pilas.rename(columns=nuevos_nombres)
 
-contenedores_ropa = pd.read_csv('../data/contenedores_ropa.csv', sep=';', encoding='utf-8')
+contenedores_ropa = pd.read_csv('contenedores_ropa.csv', sep=';', encoding='utf-8')
 contenedores_ropa = contenedores_ropa.rename(columns={'distrito':'Distrito'})
 
 

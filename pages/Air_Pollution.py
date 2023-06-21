@@ -55,7 +55,7 @@ st.header("Evolution of air pollution")
 st.write("This line plot allows us to see the evolution of air pollution depending on the year(s), and Air Quality Station(s). Besides clicking on the legend, a specific gas can be selected to observe its pattern better.")
 
 #Filters
-year_option = sorted(df['Año'].unique().tolist()) 
+year_option = sorted(df['Anyo'].unique().tolist()) 
 year_option.append('All')
 year = st.selectbox('Select a Year', year_option, 0) #select a year
 
@@ -89,7 +89,7 @@ if year == 'All':
    st.write(fig)
     
 else:  
-    df_year = df[df.Año == year]
+    df_year = df[df.Anyo == year]
     df_year = df_year.groupby('Fecha')[['PM10', 'NO', 'NO2', 'O3', 'SO2']].mean().reset_index()
     fig = px.line(df_year, x="Fecha", y=gases, color_discrete_sequence=colors,
                   labels={
@@ -100,7 +100,7 @@ else:
                 title='')
     fig.update_traces(mode="lines", hovertemplate=None)
     fig.update_layout(hovermode="x")
-      #fig.update_xaxes(    dtick="M1",    tickformat="%b\n%Y")
+    #fig.update_xaxes(    dtick="M1",    tickformat="%b\n%Y")
     fig.update_xaxes(
       rangeslider_visible=True,
       rangeselector=dict(
@@ -117,9 +117,9 @@ st.write('As the data for 2023 has yet to be uploaded, and the prize was obtaine
 
 #to obtain the values below
 df3['Fecha'] = pd.to_numeric(df["Fecha"], downcast="float")
-df1 = df3.groupby(['Estacion', 'Año'])[['PM10', 'NO', 'NO2', 'O3', 'SO2', 'Fecha']].mean().reset_index()
-df2022 = df1[df1.Año==2022].reset_index(drop=True)
-df2021 = df1[df1.Año==2021].reset_index(drop=True)
+df1 = df3.groupby(['Estacion', 'Anyo'])[['PM10', 'NO', 'NO2', 'O3', 'SO2', 'Fecha']].mean().reset_index()
+df2022 = df1[df1.Anyo==2022].reset_index(drop=True)
+df2021 = df1[df1.Anyo==2021].reset_index(drop=True)
 #df2022.iloc[:, 2:].subtract(df2021.iloc[:, 2:])
 
 station = st.selectbox('Select an Air Quality Station', station_option)
