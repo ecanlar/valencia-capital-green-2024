@@ -12,7 +12,7 @@ st.set_page_config(
 
 def pagina_pricipal():
     st.markdown("# Valencia, Green European Capital of 2024")
-    st.sidebar.markdown("# Main page")
+    st.sidebar.markdown("# Home")
 
 def Green_Areas():
     st.markdown("# Green areas")
